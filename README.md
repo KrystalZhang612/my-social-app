@@ -1,4 +1,6 @@
 # MySocial App 
+a social media application using Django Python Web Framework.<br/> 
+<hr>
 [Method to fully push Vscode project to Github](https://stackoverflow.com/questions/46877667/how-to-add-a-new-project-to-github-using-vs-code):<br/>
 Create a new repo on Github profile, copy the newly generated `.git` link. <br/>
 In Vscode project, open the Terminal: <br/> 
