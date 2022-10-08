@@ -21,3 +21,11 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 - Search bar to search for specific usernames.
 - Login section with authentication after logout.
 # Developing tools:
+[Django 4.1](https://www.djangoproject.com)<br/>
+[MacBook OS Monterey Version 12.6](https://www.apple.com/macos/monterey/)<br/>
+[Python 3.10.7](https://www.python.org/downloads/)<br/>
+[Anaconda Python Environment 3.9](https://www.anaconda.com/products/distribution?gclid=Cj0KCQjw-fmZBhDtARIsAH6H8qhJsFC Sk21Gg-mqnKGMFDP49R0JPQE3eDuNTV0N81AcoJquKcbk2ocaAvAHEALw_wcB)<br/>
+# Build
+Prerequisites & Setup
+
+# Prerequisites & Setup:
