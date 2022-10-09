@@ -29,4 +29,13 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 [Prerequisites & Setup](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#prerequisites--setup)<br/>
 
 # Prerequisites & Setup:
-Create a new folder named my_social_app. Obtain its local directory.
+Create a new folder named `my_social_app`. Obtain its local directory.<br/>
+Install Django:<br/>
+In Mac Terminal:<br/>
+`cd <my_social_app DIRECTORY>`<br/>
+`pip install django`<br/>
+Create a new Django project in `my_social_app`:<br/>
+
+
+
+
