@@ -121,11 +121,12 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
 ```
 Move and copy all static files into the static folder.<br/>
 Now in [index.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/index.html), we have all static properties loaded:
-```HTML5
+```code 
     <link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/uikit.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/tailwind.css'%}">
+    <link rel="stylesheet" href="{% static
+'assets/css/tailwind.css'%}">
 ```
 
 
