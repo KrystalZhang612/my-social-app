@@ -309,6 +309,64 @@ from .models import Profile
 Now register new user on Signup portal, and refresh from the admin portal, we can see that the user we just registered has their username and profile successfully created: <br/>
 [user's username and their profile created.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user's%20username%20and%20their%20profile%20created.png)<br/>
 ## ***Signin and Logout:***
+Add a new path in [urls.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/urls.py):
+```python 
+path('signin', views.signin, name = 'signin' )
+```
+In [views.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/views.py), create a new sign in request:
+```python 
+def signin(request):
+    return render(request, "signin.html")
+```
+type in http://127.0.0.1:8000/signin we get:<br/>
+[signin page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/signin%20page.png)<br/>
+Configure POST Method for login authentication:<br/>
+In views.py, if user exists after input username and password, log the user in, if the user does not exist or either password OR username is incorrect, “credential invalid”:<br/>
+```python 
+ def signin(request):
+        if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password’]
+        user = auth.authenticate(username=username, password =
+password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            messages.info(request, 'Credentials Invalid')
+            return redirect('signin')
+        else:
+        return render(request, "signin.html")
+```
+[Credential invalid message.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/credential%20invalid%20message.png)<br/>
+To achieve logout, start by creating a new logout path in [urls.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/urls.py):
+```python 
+path('logout', views.logout, name = 'logout' ),
+```
+Then define Logout functionality in [views.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/views.py):
+```python
+def logout(request):
+    auth.logout(request)
+    return redirect('signin')
+```
+Now if the user click the sidebar logout, they will be redirected to sign in page.<br/>
+Also we need to import login_required:
+```python 
+from django.contrib.auth.decorators import login_required
+```
+which for security purposes will redirect the user to the login page if detected user not logged in. Along with the signature above index request:
+```python 
+ @login_required(login_url='signin')
+```
+So that when we refresh the home page, sign in page will show with the following url:<br/>
+[redirect to signin url.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/redirect%20to%20signin%20url.png)<br/>
+
+
+
+
+
+
+
 
 
 
@@ -337,6 +395,9 @@ Now register new user on Signup portal, and refresh from the admin portal, we ca
 [email taken.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/email%20taken%20.png)<br/> 
 [unmatched passwords.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/unmatched%20passwords.png)<br/>
 [user's username and their profile created.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user's%20username%20and%20their%20profile%20created.png)<br/>
+[Credential invalid message.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/credential%20invalid%20message.png)<br/>
+[redirect to signin url.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/redirect%20to%20signin%20url.png)<br/>
+
 
 
 
