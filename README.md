@@ -27,6 +27,9 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 [Anaconda Python Environment 3.9](https://www.anaconda.com/products/distribution)<br/>
 # Build
 [Prerequisites & Setup](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#prerequisites--setup)<br/>
+Method Running The Project(Locally)<br/>
+Debugging&Troubleshooting<br/> 
+Synchronous Developing Notes<br/> 
 
 # Prerequisites & Setup:
 Create a new folder named `my_social_app`. Obtain its local directory.<br/>
@@ -53,7 +56,9 @@ Open the Localhost, if we see:<br/>
 `The install worked successfully! Congratulations!`<br/> 
  `You are seeing this page because DEBUG=True is in your settings file and you have not configure any urls. `<br/> 
 Then all setups are done.<br/> 
-
+# Method Running The Project(Locally) 
+# Debugging&Troubleshooting
+# Synchronous Developing Notes
 
 
 
