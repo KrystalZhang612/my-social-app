@@ -69,7 +69,7 @@ For macOS user: Run `python3 manage.py runserver` and open Localhost at http://1
 Import and open the project with Visual Studio Code IDE.<br/>
 Create a new file named urls.py under Core.<br/> 
 In [urls.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/urls.py):<br/>
-```python
+```python3
 from django.urls import path
   urlpatterns = [
     path('', views.index, name = “index”)]
