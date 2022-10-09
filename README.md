@@ -67,6 +67,7 @@ For macOS user: Run `python3 manage.py runserver` and open Localhost at http://1
 - Temporary Error:  `raise ValueError(ValueError: The view core.views.signup didn't return an HttpResponse object. It returned None instead.
 "POST /signup HTTP/1.1" 500 61151`. DEBUGGING: In views.py, import messages and authentication of user model: `from django.contrib.auth.models import User, auth  from django.contrib import messages` Then in Terminal: `format document->CONTROL+C-> python3 manage.py runserver`.
 - Noticeable Error: 10k+ tracking forks on the sidebar Source Control every time press CONTROL+C to re-run the localhost server, unable to remove the accidentally fetched `.gitignore.`. DEBUGGING: METHOD 1: Right-click main in Source Control and select Close Repositories. DO NOT use python shell virtual environment in Terminal, if activated by accident, deactivate virtualenv with: `conda deactivate`. METHOD 2: Delete the entire .Git folder to temporarily disable Source Control: In Vscode: `Preference-> Settings-> Git Enabled(CLICK OFF)`. Now we successfully disable SCM from auto-fetching the .GIt root repositories.
+- ERROR: Django return "Profile matching query does not exist" when refresh Account Setting page. DEBUGGING: Request new url link for Profile Image-> profileimg in setting.html: `<div class="col-span-2"> <label for=""> Profile Image</label> class="shadow-none bg-gray-100"> <img width="100" height="100" src="{{user_profile.profileimg.url}}" /> <input type="file" name="image" value="" </div>`. 
 - 
 
 
@@ -360,10 +361,55 @@ which for security purposes will redirect the user to the login page if detected
 ```
 So that when we refresh the home page, sign in page will show with the following url:<br/>
 [redirect to signin url.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/redirect%20to%20signin%20url.png)<br/>
-
-
-
-
+http://127.0.0.1:8000/signin?next=/ <br/> 
+So if ONLY the registered user sign in here they will be redirected to the home page.<br/>
+## ***Account Settings:***
+Start by creating a new Settings path in [urls.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/urls.py):
+```python 
+path('settings', views.settings, name = 'settings'),
+```
+Also render the request from setting.html in views.py:
+```python
+@login_required(login_url='signin')
+def settings(request):
+    return render(request, "setting.html")
+```
+Now if we type in http://127.0.0.1:8000/settings <br/> 
+Account Settings page should appear available for user to edit Basic and Privacy Infos:<br/>
+[Account Setting initial page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/Account%20setting%20initial%20page.png)<br/> 
+## ***Log the new registered user automatically to Account Setting page:***
+```python 
+   #log user in and redirect them to settings page
+                user_login = auth.authenticate(username=username,
+password=password)
+                auth.login(request, user_login)
+                #create a Profile object for the new user
+                user_model = User.objects.get(username=username)
+                new_profile = Profile.objects.create(user=user_model,
+id_user=user.id)
+                new_profile.save()
+                return redirect('settings')
+```
+Now we want specific username to show up on Account Setting page:
+In settings.html: 
+```JavaScript 
+<h1 class="text-2xl leading-none text-gray-900 tracking-tight mt-3"><a href="/">Home</a> / Account Setting for <b>{{user.username}}</b></h1>
+```
+[Home/ Account Setting for username.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/%20Home:%20Account%20Setting%20for%20username.png)<br/>
+Remove Privacy, the overview of the General left only setting page:<br/>
+[general left only account setting.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/general%20left%20only%20account%20setting.png)<br/>
+Remove Working at and Relationship:<br/>
+[simplified setting.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/simplified%20setting.png)<br/>
+Give user option to upload profile image:
+```JavaScript 
+  <div class="col-span-2">
+           <label for=""> Profile Image</label>
+           <input type="file" name="image" placeholder=""
+class="shadow-none bg-gray-100">
+                    </div>
+```
+[profile image upload.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/profile%20image%20upload.png)<br/>
+Now besides allowing user to upload their own profile image, the default avatar shows:<br/>
 
 
 
@@ -397,6 +443,14 @@ So that when we refresh the home page, sign in page will show with the following
 [user's username and their profile created.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user's%20username%20and%20their%20profile%20created.png)<br/>
 [Credential invalid message.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/credential%20invalid%20message.png)<br/>
 [redirect to signin url.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/redirect%20to%20signin%20url.png)<br/>
+[Account Setting initial page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/Account%20setting%20initial%20page.png)<br/> 
+[Home/ Account Setting for username.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/%20Home:%20Account%20Setting%20for%20username.png)<br/>
+[general left only account setting.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/general%20left%20only%20account%20setting.png)<br/>
+[simplified setting.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/simplified%20setting.png)<br/>
+[profile image upload.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/profile%20image%20upload.png)<br/>
+
+
+
 
 
 
