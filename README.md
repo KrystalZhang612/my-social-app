@@ -29,3 +29,4 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 [Prerequisites & Setup](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#prerequisites--setup)<br/>
 
 # Prerequisites & Setup:
+Create a new folder named my_social_app. Obtain its local directory.
