@@ -32,7 +32,7 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 [Synchronous Developing Notes](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#synchronous-developing-notes)<br/> 
 [Testing Results](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#testing-results)<br/> 
 # Contribution 
-[Author]()
+[Author](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#author)
 # Compatibility
 `Windows 10`, `WSL Vscode 1.68+`, `Linux Ubuntu 22.04.1 LT`, `MacBook OS Monterey 12.6+` 
 # Prerequisites & Setup:
