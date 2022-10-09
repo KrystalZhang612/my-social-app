@@ -31,7 +31,8 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 [Debugging&Troubleshooting](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#debuggingtroubleshooting)<br/> 
 [Synchronous Developing Notes](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#synchronous-developing-notes)<br/> 
 [Testing Results](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#testing-results)<br/> 
-
+#Contribution 
+[Author]()
 # Prerequisites & Setup:
 Create a new folder named `my_social_app`. Obtain its local directory.<br/>
 Install Django:<br/>
