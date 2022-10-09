@@ -542,6 +542,129 @@ To get the latest posts always shows ABOVE the older posts:
 ```JavaScript 
   {% for post in posts reversed %}
 ```
+## ***Like Posts:***
+Create a new LikePost model in [models.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/models.py):
+```python 
+class LikePost(models.Model):
+    post_id = models.CharField(max_length = 500)
+    username = models.CharField(max_length=100)
+    def __str__(self):
+        return self.username
+```
+Make migrations in Terminal:<br/> 
+`python3 manage.py makemigrations`<br/> 
+`...`<br/> 
+`Migrations for 'core':`<br/> 
+  `core/migrations/0003_likepost.py`<br/> 
+    `- Create model LikePost`<br/>
+Migrate:<br/>
+`python3 manage.py migrate`<br/> 
+`...`<br/> 
+`Operations to perform:`<br/> 
+ `Apply all migrations: admin, auth, contenttypes, core, sessions`<br/> 
+`Running migrations:`<br/> 
+`Applying core.0003_likepost... OK`<br/>
+Create a new view for LikePost in views.py:
+```python 
+@login_required(login_url='signin') def like_post(request):
+    username = request.user.username
+    post_id = request.GET.get('post_id')
+    post = Post.objects.get(id=post_id)
+```
+Check if a registered user already liked or not liked a specific post to determine if like/unlike:
+```python 
+ like_filter = LikePost.objects.get(post_id=post_id, username = username).first()
+```
+If a user has not liked this post, their click will become a new like that save to the post:
+```python 
+ if like_filter == None:
+        new_like = LikePost.objects.create(post_id=post_id,
+username=username)
+        new_like.save()
+        post.no_of_likes = post.no_of_likes+1
+        post.save()
+        return redirect('/')
+```
+Otherwise, unlike the post:
+```python 
+ else: like_filter.delete()
+       post.no_of_likes = post.no_of_likes-1
+       post.save()
+       return redirect(‘/’)
+```
+We want the number of likes to show underneath the post, so in [index.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/index.html):
+```JavaScript 
+<p>Liked by {{post.no_of_likes}} person</p>
+```
+Now if we click like button: [1 person liked the post.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/1%20person%20liked%20the%20post.png)<br/>
+To differentiate from liked by 0, 1 and 2+ people, we need if-statement:
+```JavaScript 
+  </svg>
+  {% if post.no_of_likes == 0 %}
+   <p>No likes</p>
+  {% elif post.no_of_likes == 1 %}
+   <p>Liked by {{post.no_of_likes}} person</p>
+   {% else %}
+   <p>Liked by {{post.no_of_likes}} people</p>
+   {% endif %}
+</div>
+```
+## ***Profile Page:***
+To customize our own profile page, create a new url in [urls.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/urls.py):
+```python 
+path('profile/<str:pk>', views.profile, name = 'profile'),
+```
+Also create new view in [views.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/views.py):
+```python
+@login_required(login_url='signin')
+def profile(request, pk):
+    return render(request, 'profile.html')
+```
+Go to http://127.0.0.1:8000/profile/krystalzhang612 and can observe our own profile. <br/>
+[user’s own profile.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user's%20own%20profile.png)<br/>
+To customize profile home page, in [profile.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/profile.html):
+To make the posted images visible on their profile:
+```JavaScript 
+ {% for post in user_posts %} <li>
+<a class="strip" href="{{post.image.url}}" title=""
+data-strip-group="mygroup" data-strip-group-options="loop: false">
+<img src="{{post.image.url}}" style="height: 250px; width: 300px;"
+alt=""></a></li>
+{% endfor %}
+```
+To make the number of the posts reflected:
+```JavaScript 
+     {% if user_post_length == 0%}
+<span style="color: white; font-size: 27px;"><b>No Post</b></span>
+     {% elif user_post_length == 1%}
+<span style="color: white; font-size: 27px;"><b>{{user_post_length}}
+Post</b></span>
+     {% else %}
+<span style="color: white; font-size: 27px;"><b>{{user_post_length}}
+Posts</b></span>
+{% endif%}
+```
+[krystal’s profile overview.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/krystal's%20profile%20overview.png)<br/>
+## ***Profile Page Posts Display:***
+Make profile images scrollable:
+```JavaScript 
+<script data-cfasync="false" src="{% static '../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script><script src="{% static 'js/main.min.js' %} "></script>
+```
+## ***Follow and Unfollow Users:***
+Make the following button work. Create a new user @mckennagrace. Then in [models.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/models.py):
+```python 
+ class FollowersCount(models.Model):
+    follower = models.CharField(max_length=100)
+    user = models.CharField(max_length=100)
+    def __str__(self):
+        return self.user
+```
+Similar to prior, make migrations in Terminal:<br/>
+`python3 manage.py makemigrations`<br/> 
+`...`<br/> 
+`Migrations for 'core':`<br/> 
+  `core/migrations/0004_followerscount.py`<br/> 
+   ` - Create model FollowersCount`<br/> 
 
 
 
@@ -608,6 +731,11 @@ To get the latest posts always shows ABOVE the older posts:
 [first post with caption showing.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/first%20post%20with%20caption%20showing.png)<br/>
 [new post image2.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/new%20post%20image2.png)<br/>
 [second post.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/second%20post.png)<br/>
+[1 person liked the post.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/1%20person%20liked%20the%20post.png)<br/>
+[user’s own profile.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user's%20own%20profile.png)<br/>
+[krystal’s profile overview.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/krystal's%20profile%20overview.png)<br/>
+
+
 
 
 
