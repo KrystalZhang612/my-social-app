@@ -665,38 +665,179 @@ Similar to prior, make migrations in Terminal:<br/>
 `Migrations for 'core':`<br/> 
   `core/migrations/0004_followerscount.py`<br/> 
    ` - Create model FollowersCount`<br/> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Migrate:
+`python3 manage.py migrate`<br/> 
+`...`<br/> 
+`Operations to perform:`<br/> 
+  `Apply all migrations: admin, auth, contenttypes, core, sessions`<br/> 
+`Running migrations:`<br/> 
+ ` Applying core.0004_followerscount... OK`<br/>
+ Then create a new url to send the FollowerCount request. In [urls.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/urls.py):
+```python 
+path('follow', views.follow, name = 'follow'),
+```
+Then we can have a new view in views.py corresponds to the url:
+```python 
+@login_required(login_url='signin')
+def follow(request):
+if request.method == "POST":
+        follower = request.POST['follower']
+        user = request.POST['user']
+    else:
+return redirect('/')
+```
+Add two fields for the Follow button in profile.html:
+```JavaScript 
+<input type= "hidden" value= "{{user.username}}" name = "follower" /> <input type= "hidden" value= "{{user_object.username}}" name = "user"
+```
+In views.py, check if a person already followed a user, if followed, delete follower(unfollow):
+```python 
+   if FollowersCount.objects.filter(follower=follower,
+user=user).first():
+  
+delete_follower =
+FollowersCount.objects.get(follower=follower, user=user)
+            delete_follower.delete()
+            return redirect('/profile/'+user)
+```
+Else, if not followed yet, add the new follower:
+```python 
+ else:
+    new_follower =
+FollowersCount.objects.create(follower=follower, user= user)
+    new_follower.save()
+    return redirect('/profile/'+user)
+```
+Now hit Follow button: [follower count admin.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/follower%20count%20admin.png)<br/>
+Make Follow button disappear if a user is viewing their own profiles. So in [profile.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/profile.html):
+```JavaScript 
+ {% if user_object.username == user.username %}
+<a href = "/settings" data-ripple="">Account Settings</a>
+ {% else %}
+<a data-ripple=""><button type = "submit" style="background-color:
+#ffc0cb; border: #ffc0cb;">Follow</button></a>
+{% endif %}
+```
+So at logged in user’s own profile page: [not follow button but account setting.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/not%20follow%20button%20but%20account%20setting.png)<br/>
+To switch Unfollow/Follow based on following status, in views.py:
+```python 
+ follower = request.user.username
+    user = pk
+    if FollowersCount.objects.filter(follower = follower, user =
+user).first():
+        button_text = 'Unfollow'
+    else:
+        button_text = 'Follow'
+```
+[unfollow button works.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/unfollow%20button%20works.png)<br/>
+Now in order to get correct amounts of followers and following showing, in views.py:
+```python 
+user_followers = len(FollowersCount.objects.filter(user=pk)) user_following = len(FollowersCount.objects.filter(follower=pk))
+```
+Also in profile.html:
+```JavaScript 
+{% if user_followers == 0 or user_followers == 1%}
+     <span style="color: white; font-size:
+27px;"><b>{{user_followers}} follower</b></span>
+     {% else %}
+<span style="color: white; font-size: 27px;"><b>{{user_followers}}
+followers</b></span>
+{% endif %}
+<span style="color: white; font-size: 27px;"><b>{{user_following}} following</b></span>
+```
+Now we get: [correct amount of following and followers showing.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/correct%20amount%20of%20following%20and%20followers%20showing.png)<br/>
+## ***Post Feed Updated:***
+To get to see the following users’ feed, we need to use iteration and append in views.py:
+```python 
+ user_following =
+FollowersCount.objects.filter(follower=request.user.username)
+ for users in user_following:
+ user_following_list.append(users.user)
+ for usernames in user_following_list:
+   feed_list = Post.objects.filter(user=usernames)
+   feed.append(feed_list)
+   feed_list = list(chain(*feed))
+   posts = Post.objects.all()
+return render(request, "index.html", {'user_profile': user_profile, 'posts': feed_list})
+```
+Now krystal’s posts shows on mckenna’s feed since she follows her:
+[following users' feed visible.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/following%20users'%20feed%20visible.png)<br/>
+## ***Download Post Images:***
+In [index.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/index.html):
+```JavaScript 
+<a href="{{post.image.url}}" class="flex items-center space-x-2 flex-1 justify-end" download >
+```
+Click the bottom square-shaped button and the download feature works:<br/> 
+[download feature works.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/download%20feature%20works.png)<br/>
+## ***Search User:***
+Make search bar searchable in index.html:
+```JavaScript 
+<input type="text" name = "username" placeholder="Search for username..">&nbsp; &nbsp;
+<button type ="submit"><i class="fa fa-search fa-1x"></i></button>
+```
+Now the search bar has proper spacing and placeholder:<br/>
+[username search bar initial look.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/username%20search%20bar%20initial%20look.png)<br/>
+Then create new url request as search in views.py:
+```python 
+@login_required(login_url='signin')
+def search(request):
+    user_object = User.objects.get(username=request.user.username)
+    user_profile = Profile.objects.get(user= user_object)
+   if request.method == 'POST':
+        username = request.POST['username']
+  username_object = User.objects.filter(username__icontains =
+username)
+        username_profile= []
+        username_profile_list = []
+        for users in username_object:
+        username_profile.append(users.id)
+        for ids in username_profile:
+            profile_lists = Profile.objects.filter(id_user = ids)
+            username_profile_list.append(profile_lists)
+        username_profile_list = list(chain(*username_profile_list))
+    return render(request, 'search.html', {'user_profile':
+user_profile, 'username_profile_list': username_profile_list})
+```
+Then loop the search list in [search.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/search.html):
+```JavaScript 
+  {% for users in username_profile_list %}
+         <section class="search-result-item">
+               <a class="image-link"
+href="/profile/{{users.user}}"><img class="image"
+src="{{users.profileimg.url}}">
+                  </a>
+         <div class="search-result-item-body">
+                 <div class="row">
+          <div class="col-sm-9">
+   <h4 class="search-result-item-heading"><a
+href="/profile/{{users.user}}"><b>@{{users.user}}</b></a></h4>
+   <p class="info">{{users.location}}</p>
+   <p class="description">{{users.bio}}</p>
+```
+Now if search `krystalzhang612` then we get the search feature working:<br/>
+[username search feature works.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/username%20search%20feature%20works.png)<br/>
+## ***User Suggestions:***
+Looping through all the lists of following users in views.py:
+```python
+# user suggestion starts
+    all_users = User.objects.all()
+    user_following_all = []
+    for user in user_following:
+        user_list = User.objects.get(username = user.user)
+        user_following_all.append(user_list)
+    new_suggestions_list = [x for x in list(all_users) if (x not in
+list(user_following_all()))]
+    current_user = User.objects.filter(username=request.user.username)
+    final_suggestions_list = [x for x in list(new_suggestions_list) if
+(x not in list(current_user))]
+    random.shuffle(final_suggestions_list)
+```
+Now create at least 4 more new accounts.<br/> 
+registered accounts:<br/> 
+@krystalzhang612 @admin @mckennagrace<br/> 
+@danreynolds @barmstrong @margotrobbie @chesterb<br/> 
+Now refresh the logged in page and we can see on sidebar all suggested users showed:<br/>
+[user suggestions showed.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user%20suggestions%20showing.png)<br/>
 
 
 # Testing Results
@@ -734,6 +875,20 @@ Similar to prior, make migrations in Terminal:<br/>
 [1 person liked the post.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/1%20person%20liked%20the%20post.png)<br/>
 [user’s own profile.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user's%20own%20profile.png)<br/>
 [krystal’s profile overview.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/krystal's%20profile%20overview.png)<br/>
+[follower count admin.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/follower%20count%20admin.png)<br/>
+[not follow button but account setting.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/not%20follow%20button%20but%20account%20setting.png)<br/>
+[unfollow button works.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/unfollow%20button%20works.png)<br/>
+[correct amount of following and followers showing.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/correct%20amount%20of%20following%20and%20followers%20showing.png)<br/>
+[following users' feed visible.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/following%20users'%20feed%20visible.png)<br/>
+[download feature works.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/download%20feature%20works.png)<br/>
+[username search bar initial look.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/username%20search%20bar%20initial%20look.png)<br/>
+[username search feature works.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/username%20search%20feature%20works.png)<br/>
+
+
+
+
+
+
 
 
 
