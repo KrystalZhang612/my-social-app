@@ -66,6 +66,7 @@ For macOS user: Run `python3 manage.py runserver` and open Localhost at http://1
 # Debugging&Troubleshooting
 - Temporary Error:  `raise ValueError(ValueError: The view core.views.signup didn't return an HttpResponse object. It returned None instead.
 "POST /signup HTTP/1.1" 500 61151`. DEBUGGING: In views.py, import messages and authentication of user model: `from django.contrib.auth.models import User, auth  from django.contrib import messages` Then in Terminal: `format document->CONTROL+C-> python3 manage.py runserver`.
+- Noticeable Error: 10k+ tracking forks on the sidebar Source Control every time press CONTROL+C to re-run the localhost server, unable to remove the accidentally fetched `.gitignore.`. DEBUGGING: METHOD 1: Right-click main in Source Control and select Close Repositories. DO NOT use python shell virtual environment in Terminal, if activated by accident, deactivate virtualenv with: `conda deactivate`. METHOD 2: Delete the entire .Git folder to temporarily disable Source Control: In Vscode: `Preference-> Settings-> Git Enabled(CLICK OFF)`. Now we successfully disable SCM from auto-fetching the .GIt root repositories.
 - 
 
 
@@ -238,6 +239,79 @@ def signup(request):
     return render(request, "signup.html")
 ```
 Type http://127.0.0.1:8000/signup we got: [signup initial page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/signup%20initial%20page.png)<br/>
+Since passwords are confidential values, we need to use POST method in [signup.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/signup.html):
+```JavaScript
+<form action= "" method = "POST">
+```
+Also we use a CSRF token to prevent CSRF attacks:
+```JavaScript 
+{% csrf_token %}
+```
+## ***Implement the Signup View:***
+If use POST method, load all user attributes:
+```python 
+ def signup(request):
+     if request.method == "POST":
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        password2 = request.POST['password2']
+```
+If two passwords matched and input email exists, redirect user back to signup page:
+```python 
+ if password == password2:
+            if User.objects.filter(email=email).exists():
+                messages.info(request, 'Email Taken')
+                return redirect('signup')
+```
+If two passwords matched and input username exists, redirect back to signup page:
+```python
+ elif User.objects.filter(username=username).exists():
+                messages.info(request, 'Username Taken')
+                return redirect('signup')
+```
+If two passwords matched and new user, create a new user with all the infos and save:
+```python 
+ else: user = User.objects.create_user(username=username,email=email, password=password)
+ user.save()
+```
+Render the request:
+```python 
+return render(request, "signup.html")
+```
+Now in [signup.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/signup.html), create styles to highlight red the duplicate warning message:
+```JavaScript 
+ <div> <style>
+           h5 {color: red; }
+</style>
+                {% for message in messages %}
+             <h5>{{message}}</h5>
+                 {% endfor %}  </div>
+```
+Now test the signup page with existing username, email and unmatched PWs should get:<br/>
+[user taken.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user%20taken.png)<br/> 
+[email taken.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/email%20taken%20.png)<br/> 
+[unmatched passwords.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/unmatched%20passwords.png)<br/>
+Now with no error, we want the system to automatically create a new user with creating a new profile that we can view in our `Django Administration` page. So in [views.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/views.py):
+```python 
+#log user in and redirect them to settings page
+ #create a Profile object for the new user
+      user_model = User.objects.get(username=username)
+      new_profile = Profile.objects.create(user=user_model,
+id_user=user.id)
+      new_profile.save()
+      return redirect('signup')
+```
+Also import Profile Model to make profile creation work:
+```python 
+from .models import Profile
+```
+Now register new user on Signup portal, and refresh from the admin portal, we can see that the user we just registered has their username and profile successfully created: <br/>
+[user's username and their profile created.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user's%20username%20and%20their%20profile%20created.png)<br/>
+## ***Signin and Logout:***
+
+
+
 
 
 
@@ -259,6 +333,12 @@ Type http://127.0.0.1:8000/signup we got: [signup initial page.PNG](https://gith
 [blank-profile-picture.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/media/blank-profile-picture.png)<br/>
 [admin portal initial view.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/admin%20portal%20initial%20view.png)<br/> 
 [signup initial page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/signup%20initial%20page.png)<br/>
+[user taken.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user%20taken.png)<br/> 
+[email taken.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/email%20taken%20.png)<br/> 
+[unmatched passwords.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/unmatched%20passwords.png)<br/>
+[user's username and their profile created.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user's%20username%20and%20their%20profile%20created.png)<br/>
+
+
 
 
 
