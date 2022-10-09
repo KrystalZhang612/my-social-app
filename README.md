@@ -151,7 +151,84 @@ default='blank-profile-picture.png')
     location = models.CharField(max_length=100, blank=True)
 ```
 Here, create a new [media](https://github.com/KrystalZhang612/MySocial-App/tree/main/media) folder to hold the default avatar, which is:
-[blank-profile-picture.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/media/blank-profile-picture.png) here. Configure media url and root in [settings.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/my_social_app/settings.py):
+[blank-profile-picture.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/media/blank-profile-picture.png) here. <br/>
+Configure media url and root in [settings.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/my_social_app/settings.py):
+```python
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+```
+Also configure the url pattern in [urls.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/urls.py):
+```python 
+urlpatterns = urlpatterns+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
+Now return the username:
+```python 
+def __str__(self):
+        return self.user.username
+```
+Open the Terminal panel:<br/> 
+Now we got the following admin access for the static files:<br/>
+```JavaScript 
+"GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+"GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0 
+"GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0 
+"GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0
+```
+Now we need to make migrations:<br/>
+`python3 manage.py makemigrations`<br/>
+Migrations for core app are made:<br/>
+`Migrations for 'core':`<br/> 
+  `core/migrations/0001_initial.py`<br/> 
+    `- Create model Profile`<br/>
+Now migrate:<br/> 
+ `python3 manage.py migrate`<br/>
+The migrations operations are all successful:<br/>
+```JavaScript 
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, core, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying core.0001_initial... OK
+  Applying sessions.0001_initial... OK
+```
+As admin, we need to create a super user, which is the administrator as ourselves:<br/>
+`python3 manage.py createsuperuser`<br/>
+Create username, email address and password for admin login.<br/>
+Then to make the profile models visible on `admin` portal, in [admin.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/admin.py):
+```python 
+from .models import Profile admin.site.register(Profile)
+```
+Now open and login to http://127.0.0.1:8000/admin/ , we have:<br/> 
+[admin portal initial view.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/admin%20portal%20initial%20view.png)<br/> 
+## ***Signup:***
+Add a new signup path in [urls.py(Core)](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/urls.py):
+```python 
+path('signup', views.signup, name = 'signup' )
+```
+Create the signup view in [views.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/views.py):
+```python 
+def signup(request):
+    return render(request, "signup.html")
+```
+Type http://127.0.0.1:8000/signup we got: [signup initial page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/signup%20initial%20page.png)<br/>
+
+
 
 
 
@@ -169,6 +246,8 @@ Here, create a new [media](https://github.com/KrystalZhang612/MySocial-App/tree/
 [all templates are uploaded.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/all%20templates%20are%20uploaded.png)<br/>
 [basic all JavaScript worked template.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/basic%20all%20JavaScript%20worked%20template.png)<br/>
 [blank-profile-picture.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/media/blank-profile-picture.png)<br/>
+[admin portal initial view.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/admin%20portal%20initial%20view.png)<br/> 
+[signup initial page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/signup%20initial%20page.png)<br/>
 
 
 
