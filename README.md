@@ -440,6 +440,64 @@ Being redirected to Account Settings page when user clicks `Account setting` on 
 ```JavaScript 
 <li><a href="/settings"> Account setting </a> </li>
 ```
+Now if I upload <br/>
+[krystal profile image.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/krystal%20profile%20image.png)<br/>
+as my own profile image and edit the settings as<br/>
+[all settings are saved.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/all%20settings%20are%20saved.png)<br/>
+After saved, on admin portal we can see the profile for krystal as updated successfully:<br/>
+[krystal profile on admin side.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/krystal%20profile%20on%20admin%20side.png)<br/>
+## ***Uploading Posts:***
+In [models.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/models.py), to make every post with an unique ID:
+```python 
+import uuid
+from datetime import datetime
+...
+id= models.UUIDField(primary_key = True,default=uuid.uuid4)
+```
+The rest of the attributes initialization for posting posts:
+```python 
+ user = models.CharField(max_length = 100)
+    image = models.ImageField(upload_to='post_images')
+    caption = models.TextField()
+    created_at = models.DateTimeField(default= datetime.now)
+    no_of_likes = models.IntegerField(default=0)
+```
+Then we make migrations for this newly created model in Terminal:<br/> 
+ `python3 manage.py makemigrations`<br/>
+`...`<br/> 
+ `Migrations for 'core':`<br/> 
+ ` core/migrations/0002_post.py`<br/> 
+   ` - Create model Post`<br/>
+ Now migrate:<br/>
+ `python3 manage.py migrate`<br/> 
+`...`<br/>
+ `Operations to perform:`<br/>
+  `Apply all migrations: admin, auth, contenttypes, core, sessions`<br/> 
+`Running migrations:`<br/> 
+  `Applying core.0002_post... OK`<br/>
+  Now in admin portal, we can see Posts appears as a Core:
+[posts as core appears.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/posts%20as%20core%20appears.png)<br/>
+Create a new upload view in [views.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/views.py):
+```python 
+@login_required(login_url='signin')
+def upload(request):
+    return HttpResponse('<h1>Upload View</h1>')
+```
+[Upload initial button.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/Upload%20initial%20button.png)<br/>
+We want the right top profile image to show our own profile image. So in [index.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/index.html):
+```JavaScript 
+<a href="#">
+<img src="{{user_profile.profileimg.url}}" class="header-avatar"
+alt=""> </a>
+```
+[right sidebar show our own profile image.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/right%20sidebar%20show%20our%20own%20profile%20image.png)<br/>
+
+
+
+
+
+
+
 
 
 
@@ -480,6 +538,12 @@ Being redirected to Account Settings page when user clicks `Account setting` on 
 [simplified setting.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/simplified%20setting.png)<br/>
 [profile image upload.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/profile%20image%20upload.png)<br/>
 [default profile image shows/upload pfp.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/default%20profile%20image%20shows:upload%20pfp.png)<br/>
+[krystal profile image.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/krystal%20profile%20image.png)<br/>
+[all settings are saved.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/all%20settings%20are%20saved.png)<br/>
+[krystal profile on admin side.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/krystal%20profile%20on%20admin%20side.png)<br/>
+[posts as core appears.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/posts%20as%20core%20appears.png)<br/>
+[Upload initial button.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/Upload%20initial%20button.png)<br/>
+[right sidebar show our own profile image.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/right%20sidebar%20show%20our%20own%20profile%20image.png)<br/>
 
 
 
