@@ -114,7 +114,20 @@ Now all templates are cluttered on localhost:<br/>
 ## ***Static Files:***
 Refresh Vscode IDE, create a new folder named [static](https://github.com/KrystalZhang612/MySocial-App/tree/main/static):<br/>
 Set up static files roots in [settings.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/my_social_app/settings.py):
-
+```python 
+STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
+```
+Move and copy all static files into the static folder.<br/>
+Now in [index.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/index.html), we have all static properties loaded:
+```html5
+    <link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/uikit.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static
+'assets/css/tailwind.css'%}">
+```
 
 
 
@@ -127,6 +140,7 @@ Set up static files roots in [settings.py](https://github.com/KrystalZhang612/My
 
 # Testing Results
 [welcome testing white page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/welcome%20testing%20white%20page.png)<br/>
+[all templates are uploaded.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/all%20templates%20are%20uploaded.png)<br/>
 
 
 
