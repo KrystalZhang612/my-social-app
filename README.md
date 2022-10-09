@@ -35,6 +35,32 @@ In Mac Terminal:<br/>
 `cd <my_social_app DIRECTORY>`<br/>
 `pip install django`<br/>
 Create a new Django project in `my_social_app`:<br/>
+`django-admin startproject my_social_app`<br/>
+Locate to the new folder generated:<br/>
+`cd my_social_app`<br/>
+Create [Core](https://github.com/KrystalZhang612/MySocial-App/tree/main/core) app to handle various functionalities:<br/>
+`django-admin startapp core`<br/>
+Initial run to make sure the project works:<br/>
+`python3 manage.py runserver`<br/>
+If we get the following message, the project setup is done:<br/>
+`System check identified no issues (0 silenced).`<br/>
+`You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.`<br/>
+`Django version 4.1.1, using settings 'my_social_app.settings' Starting development server at http://127.0.0.1:8000/`<br/>
+`Quit the server with CONTROL-C.`<br/>
+Where the url http://127.0.0.1:8000/ is our Localhost for future performance.<br/>
+Open the Localhost, if we see:<br/>
+`The install worked successfully! Congratulations!`<br/> 
+ `You are seeing this page because DEBUG=True is in your settings file and you have not configure any urls. `<br/> 
+Then all setups are done.<br/> 
+
+
+
+
+
+
+
+
 
 
 
