@@ -132,6 +132,27 @@ Change the configuration of the JavaScript link to the favicon.PNG image:
 <link href="{% static 'favicon.png' %}" rel="icon" type="image/png">
 ```
 Refresh the localhost, we get [basic all JavaScript worked template.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/basic%20all%20JavaScript%20worked%20template.png)<br/>
+## ***Creating a Profile Model:***
+Create authentication with the website->Register and login to the social media:<br/>
+we need to create a customized profile model, so in [models.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/models.py), extend database, create a separate model to the profile and link it to the user model using [foreign key](https://en.wikipedia.org/wiki/Foreign_key). <br/>
+import contrib.auth to get user model and initialize it:<br/>
+```python 
+from django.contrib.auth import get_user_model
+User = get_user_model()
+```
+Create all necessary attributes to specify profile model:
+```python 
+ class Profile(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_user = models.IntegerField()
+    bio = models.TextField(blank=True)
+    profileimg = models.ImageField(upload_to='profile_images',
+default='blank-profile-picture.png')
+    location = models.CharField(max_length=100, blank=True)
+```
+Here, create a new [media](https://github.com/KrystalZhang612/MySocial-App/tree/main/media) folder to hold the default avatar, which is:
+[blank-profile-picture.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/media/blank-profile-picture.png) here. Configure media url and root in [settings.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/my_social_app/settings.py):
+
 
 
 
@@ -147,6 +168,8 @@ Refresh the localhost, we get [basic all JavaScript worked template.PNG](https:/
 [welcome testing white page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/welcome%20testing%20white%20page.png)<br/>
 [all templates are uploaded.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/all%20templates%20are%20uploaded.png)<br/>
 [basic all JavaScript worked template.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/basic%20all%20JavaScript%20worked%20template.png)<br/>
+[blank-profile-picture.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/media/blank-profile-picture.png)<br/>
+
 
 
 
