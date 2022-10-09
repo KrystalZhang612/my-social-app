@@ -57,6 +57,11 @@ Open the Localhost, if we see:<br/>
  `You are seeing this page because DEBUG=True is in your settings file and you have not configure any urls. `<br/> 
 Then all setups are done.<br/> 
 # Method Running The Project(Locally) 
+Download the entire `my_social_app` project to local directory<br/>
+On local device Terminal, use `cd` to locate to the project to `...my_social_app/my_social_app`<br/>
+For Windows user: Run `python manage.py runserver` and open Localhost at http://127.0.0.1:8000/ to test the App. <br/>
+For macOS user: Run `python3 manage.py runserver` and open Localhost at http://127.0.0.1:8000/ to test the App. <br/> 
+`CONTROL+C` to terminate testing. <br/> 
 # Debugging&Troubleshooting
 # Synchronous Developing Notes
 
