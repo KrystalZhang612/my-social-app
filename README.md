@@ -63,7 +63,18 @@ For Windows user: Run `python manage.py runserver` and open Localhost at http://
 For macOS user: Run `python3 manage.py runserver` and open Localhost at http://127.0.0.1:8000/ to test the App. <br/> 
 `CONTROL+C` to terminate testing. <br/> 
 # Debugging&Troubleshooting
+
 # Synchronous Developing Notes
+## ***URL Routing:***
+Import and open the project with Visual Studio Code IDE.<br/>
+Create a new file named urls.py under Core.<br/> 
+In [urls.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/urls.py):<br/>
+```python
+from django.urls import path
+  urlpatterns = [
+    path('', views.index, name = “index”)]
+```
+ 
 
 
 
