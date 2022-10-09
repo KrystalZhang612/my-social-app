@@ -410,6 +410,37 @@ class="shadow-none bg-gray-100">
 ```
 [profile image upload.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/profile%20image%20upload.png)<br/>
 Now besides allowing user to upload their own profile image, the default avatar shows:<br/>
+[default profile image shows/upload pfp.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/default%20profile%20image%20shows:upload%20pfp.png)<br/>
+## ***Save all uploads and settings changes:***
+In [views.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/views.py):
+If user upload their own profile image, save all settings infos in their profile:
+```python 
+ if request.FILES.get('image') != None:
+            image = request.FILES.get('image')
+            bio = request.POST['bio']
+            location = request.POST['location']
+            user_profile.profileimg = image
+            user_profile.bio = bio
+            user_profile.location = location
+            user_profile.save()
+        return redirect('settings')
+```
+If user did not upload their own profile image, save all settings infos in their profile:
+```python 
+    if request.FILES.get('image') == None:
+            image = user_profile.profileimg
+            bio = request.POST['bio']
+            location = request.POST['location']
+            user_profile.profileimg = image
+            user_profile.bio = bio
+            user_profile.location = location
+            user_profile.save()
+```
+Being redirected to Account Settings page when user clicks `Account setting` on sidebar:
+```JavaScript 
+<li><a href="/settings"> Account setting </a> </li>
+```
+
 
 
 
@@ -448,6 +479,7 @@ Now besides allowing user to upload their own profile image, the default avatar 
 [general left only account setting.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/general%20left%20only%20account%20setting.png)<br/>
 [simplified setting.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/simplified%20setting.png)<br/>
 [profile image upload.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/profile%20image%20upload.png)<br/>
+[default profile image shows/upload pfp.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/default%20profile%20image%20shows:upload%20pfp.png)<br/>
 
 
 
