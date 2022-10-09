@@ -94,6 +94,26 @@ modify [urls.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/my_so
 ```
 Refresh localhost http://127.0.0.1:8000:<br/>
 [welcome testing white page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/welcome%20testing%20white%20page.png)<br/>
+## ***Template Setup:***
+Configurations setup:<br/>
+in [settings.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/my_social_app/settings.py):
+```python 
+import os
+```
+Create a new folder named [templates](https://github.com/KrystalZhang612/MySocial-App/tree/main/templates) to hold all html files. Need to tell Django:
+```python
+ "DIRS": [os.path.join(BASE_DIR, "templates")]
+```
+Drag all html files (index.html, setting.html, signin.html, signup.html, profile.html) into templates.<br/>
+In [views.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/views.py):
+```python 
+return render(request, "index.html")
+```
+Now all templates are cluttered on localhost:<br/>
+[all templates are uploaded.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/all%20templates%20are%20uploaded.png)<br/>
+## ***Static Files:***
+Refresh Vscode IDE, create a new folder named [static](https://github.com/KrystalZhang612/MySocial-App/tree/main/static):<br/>
+Set up static files roots in [settings.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/my_social_app/settings.py):
 
 
 
@@ -106,6 +126,7 @@ Refresh localhost http://127.0.0.1:8000:<br/>
 
 
 # Testing Results
+[welcome testing white page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/welcome%20testing%20white%20page.png)<br/>
 
 
 
