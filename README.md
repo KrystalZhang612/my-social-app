@@ -28,7 +28,7 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 # Build
 [Prerequisites & Setup](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#prerequisites--setup)<br/>
 [Method Running The Project(Locally)](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#method-running-the-projectlocally)<br/>
-Debugging&Troubleshooting<br/> 
+[Debugging&Troubleshooting](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#debuggingtroubleshooting)<br/> 
 Synchronous Developing Notes<br/> 
 
 # Prerequisites & Setup:
