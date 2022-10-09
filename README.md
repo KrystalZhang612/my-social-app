@@ -68,9 +68,8 @@ For macOS user: Run `python3 manage.py runserver` and open Localhost at http://1
 "POST /signup HTTP/1.1" 500 61151`. DEBUGGING: In views.py, import messages and authentication of user model: `from django.contrib.auth.models import User, auth  from django.contrib import messages` Then in Terminal: `format document->CONTROL+C-> python3 manage.py runserver`.
 - Noticeable Error: 10k+ tracking forks on the sidebar Source Control every time press CONTROL+C to re-run the localhost server, unable to remove the accidentally fetched `.gitignore.`. DEBUGGING: METHOD 1: Right-click main in Source Control and select Close Repositories. DO NOT use python shell virtual environment in Terminal, if activated by accident, deactivate virtualenv with: `conda deactivate`. METHOD 2: Delete the entire .Git folder to temporarily disable Source Control: In Vscode: `Preference-> Settings-> Git Enabled(CLICK OFF)`. Now we successfully disable SCM from auto-fetching the .GIt root repositories.
 - ERROR: Django return "Profile matching query does not exist" when refresh Account Setting page. DEBUGGING: Request new url link for Profile Image-> profileimg in setting.html: `<div class="col-span-2"> <label for=""> Profile Image</label> class="shadow-none bg-gray-100"> <img width="100" height="100" src="{{user_profile.profileimg.url}}" /> <input type="file" name="image" value="" </div>`. 
+- Error when uploading new image:  Forbidden (403) CSRF verification failed. Request aborted. DEBUGGING: add `{% csrf_token %} after <form action...>` in index.html.
 - 
-
-
 
 
 
@@ -491,6 +490,64 @@ We want the right top profile image to show our own profile image. So in [index.
 alt=""> </a>
 ```
 [right sidebar show our own profile image.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/right%20sidebar%20show%20our%20own%20profile%20image.png)<br/>
+In views.py, add new image upload view:
+```python 
+@login_required(login_url='signin')
+def upload(request):
+      if request.method == "POST":
+        user = request.user.username
+        image = request.FILES.get('image_upload')
+        caption = request.POST['caption']
+        new_post = Post.objects.create(user=user, image=image,
+caption=caption)
+        new_post.save()
+        return redirect('/')
+    else:
+        return redirect('/')
+```
+Now post a new image [new post image1.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/new%20post%20image1.png)<br/>
+And from admin portal we can see: [new post from krystal admin.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/new%20post%20from%20krystal%20admin.png)<br/>
+Which the new post has its unique ID.
+## ***Post Feed:***
+Change the post username to our own username in [index.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/index.html):
+ ```JavaScript 
+ <span class="block font-semibold ">@{{post.user}}</span>
+ ```
+ Change the post image to the logged in user uploaded:<br/>
+ In index.html change the image source url:
+ ```JavaScript 
+  <img src="{{post.image.url}}" alt="">
+ ```
+ Now [my first post showing.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/my%20first%20post%20showing.png)<br/>
+ And click the image we got the zoom in: [zoom in first image.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/zoom%20in%20first%20image.png)<br/>
+Now reduce unnecessary features and add:
+```JavaScript 
+ <p>
+ <a>{{post.user}} {{post.caption}}</a></p>
+```
+Refresh and the caption description shows: [first post with caption showing.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/first%20post%20with%20caption%20showing.png)<br/>
+Bolden the username prefix to caption:
+```JavaScript 
+ <a><strong>{{post.user}}</strong></a> {{post.caption}}
+```
+Add a hash link as:
+```JavaScript 
+<span class="block font-semibold "><a href = "#">@{{post.user}}</a></span>
+```
+So when clicking on username above post, go to http://127.0.0.1:8000/# <br/> 
+Now let’s upload another picture:<br/>
+[new post image2.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/new%20post%20image2.png)<br/>
+[second post.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/second%20post.png)<br/>
+To get the latest posts always shows ABOVE the older posts:
+```JavaScript 
+  {% for post in posts reversed %}
+```
+
+
+
+
+
+
 
 
 
@@ -544,6 +601,14 @@ alt=""> </a>
 [posts as core appears.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/posts%20as%20core%20appears.png)<br/>
 [Upload initial button.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/Upload%20initial%20button.png)<br/>
 [right sidebar show our own profile image.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/right%20sidebar%20show%20our%20own%20profile%20image.png)<br/>
+[new post image1.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/new%20post%20image1.png)<br/>
+[new post from krystal admin.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/new%20post%20from%20krystal%20admin.png)<br/>
+[my first post showing.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/my%20first%20post%20showing.png)<br/>
+[zoom in first image.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/zoom%20in%20first%20image.png)<br/>
+[first post with caption showing.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/first%20post%20with%20caption%20showing.png)<br/>
+[new post image2.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/new%20post%20image2.png)<br/>
+[second post.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/second%20post.png)<br/>
+
 
 
 
