@@ -127,6 +127,12 @@ Now in [index.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/te
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/tailwind.css'%}">
 ```
+Change the configuration of the JavaScript link to the favicon.PNG image:
+```JavaScript
+<link href="{% static 'favicon.png' %}" rel="icon" type="image/png">
+```
+Refresh the localhost, we get [basic all JavaScript worked template.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/basic%20all%20JavaScript%20worked%20template.png)<br/>
+
 
 
 
@@ -140,9 +146,7 @@ Now in [index.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/te
 # Testing Results
 [welcome testing white page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/welcome%20testing%20white%20page.png)<br/>
 [all templates are uploaded.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/all%20templates%20are%20uploaded.png)<br/>
-
-
-
+[basic all JavaScript worked template.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/basic%20all%20JavaScript%20worked%20template.png)<br/>
 
 
 
