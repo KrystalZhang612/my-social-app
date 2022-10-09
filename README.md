@@ -883,6 +883,7 @@ Now refresh the logged in page and we can see on sidebar all suggested users sho
 [download feature works.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/download%20feature%20works.png)<br/>
 [username search bar initial look.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/username%20search%20bar%20initial%20look.png)<br/>
 [username search feature works.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/username%20search%20feature%20works.png)<br/>
+[user suggestions showed.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user%20suggestions%20showing.png)<br/>
 
 
 
