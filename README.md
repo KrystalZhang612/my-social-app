@@ -64,6 +64,21 @@ For Windows user: Run `python manage.py runserver` and open Localhost at http://
 For macOS user: Run `python3 manage.py runserver` and open Localhost at http://127.0.0.1:8000/ to test the App. <br/> 
 `CONTROL+C` to terminate testing. <br/> 
 # Debugging&Troubleshooting
+- Temporary Error: `raise ValueError(
+ValueError: The view core.views.signup didn't return an HttpResponse object. It returned None instead.
+"POST /signup HTTP/1.1" 500 61151`. DEBUGGING: In views.py, import messages and authentication of user model:
+```python 
+from django.contrib.auth.models import User, auth
+from django.contrib import messages
+```
+`format document->CONTROL+C-> python3 manage.py runserver`
+- 
+
+
+
+
+
+
 
 # Synchronous Developing Notes
 ## ***URL Routing:***
