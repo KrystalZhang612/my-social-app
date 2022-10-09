@@ -30,6 +30,7 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 [Method Running The Project(Locally)](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#method-running-the-projectlocally)<br/>
 [Debugging&Troubleshooting](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#debuggingtroubleshooting)<br/> 
 [Synchronous Developing Notes](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#synchronous-developing-notes)<br/> 
+[Testing Results]()
 
 # Prerequisites & Setup:
 Create a new folder named `my_social_app`. Obtain its local directory.<br/>
@@ -69,12 +70,49 @@ For macOS user: Run `python3 manage.py runserver` and open Localhost at http://1
 Import and open the project with Visual Studio Code IDE.<br/>
 Create a new file named urls.py under Core.<br/> 
 In [urls.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/urls.py):<br/>
-```python3
+```python
 from django.urls import path
   urlpatterns = [
     path('', views.index, name = “index”)]
 ```
- 
+use views.index to access views.py here.<br/> 
+Create a simple HTTP Response request in [views.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/views.py):<br/>
+```python 
+from django.http import HttpResponse
+```
+Import views: 
+```python
+from . import views
+```
+To get urls reflected on the main, under my_social_app folder<br/>
+modify [urls.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/my_social_app/urls.py):
+```python 
+ from django.urls import path, include
+ urlpatterns = [
+    path("admin/", admin.site.urls),
+    path('', include('core.urls'))]
+```
+Refresh localhost http://127.0.0.1:8000:<br/>
+[welcome testing white page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/welcome%20testing%20white%20page.png)<br/>
+
+
+
+
+
+
+
+
+
+
+
+# Testing Results
+
+
+
+
+
+
+
 
 
 
