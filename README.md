@@ -25,6 +25,7 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 [MacBook OS Monterey Version 12.6](https://www.apple.com/macos/monterey/)<br/>
 [Python 3.10.7](https://www.python.org/downloads/)<br/>
 [Anaconda Python Environment 3.9](https://www.anaconda.com/products/distribution)<br/>
+[Vscode 1.68+](https://code.visualstudio.com/updates/v1_72)
 # Build
 [Prerequisites & Setup](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#prerequisites--setup)<br/>
 [Method Running The Project(Locally)](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#method-running-the-projectlocally)<br/>
