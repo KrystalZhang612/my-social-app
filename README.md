@@ -6,7 +6,7 @@ In Vscode project, open the Terminal: <br/>
 `git init`<br/> 
 `git commit -m "COMMIT MESSAGE"`<br/> 
 `git remote add origin .GIT LINK OBTAINED FROM ABOVE`<br/> 
-`git push -u origin master`<br/>
+`git push -u origin NAME-OF-THE-NEW-BRANCH`<br/>
 Then in Settings-> Enable Git<br/>
 Source Control -> right click 3 dots -> Create new Branch -> name new branch -> Publish Branch <br/>
 Refresh the repo link on webpage, the entire project is pushed. <br/> 
