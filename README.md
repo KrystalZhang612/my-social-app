@@ -2,9 +2,8 @@
 A social media application using Django Python Web Framework.<br/> <hr>
 ## MySocial App Overview:<br/>
 ![Screenshot](https://github.com/KrystalZhang612/MySocial-App/blob/main/mysocialapp-overview1.png)<br/>
-![Screenshot]()<br/>
-
-                                                           
+![Screenshot](https://github.com/KrystalZhang612/MySocial-App/blob/main/mysocialapp-overview2.png)<br/>
+                                                          
 [Method to fully push Vscode project to Github](https://stackoverflow.com/questions/46877667/how-to-add-a-new-project-to-github-using-vs-code):<br/>
 Create a new repo on Github profile without adding README file, copy the newly generated `.git` link. <br/>
 In Vscode project, open the Terminal: <br/> 
