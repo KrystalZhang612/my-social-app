@@ -27,15 +27,21 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 [Anaconda Python Environment 3.9](https://www.anaconda.com/products/distribution)<br/>
 [Vscode 1.68+](https://code.visualstudio.com/updates/v1_72)
 # Build
-[Prerequisites & Setup](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#prerequisites--setup)<br/>
 [Method Running The Project(Locally)](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#method-running-the-projectlocally)<br/>
+[Prerequisites & Setup](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#prerequisites--setup)<br/>
 [Debugging&Troubleshooting](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#debuggingtroubleshooting)<br/> 
 [Synchronous Developing Notes](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#synchronous-developing-notes)<br/> 
 [Testing Results](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#testing-results)<br/> 
 # Contribution 
 [Author](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#author)
 # Compatibility
-`Windows 10`, `WSL Vscode 1.68+`, `Linux Ubuntu 22.04.1 LT`, `MacBook OS Monterey 12.6+` 
+`Windows 10`, `WSL Vscode 1.68+`, `Linux Ubuntu 22.04.1 LT`, `MacBook OS Monterey 12.6+`
+# Method Running The Project(Locally) 
+Download the entire project to local directory<br/>
+On local device Terminal, use `cd` to locate to the project to `...my_social_app/my_social_app` folder <br/>
+For Windows user: Run `python manage.py runserver` and open Localhost at http://127.0.0.1:8000/ to test the App. <br/>
+For macOS user: Run `python3 manage.py runserver` and open Localhost at http://127.0.0.1:8000/ to test the App. <br/> 
+`CONTROL+C` to terminate testing. <br/> 
 # Prerequisites & Setup:
 Create a new folder named `my_social_app`. Obtain its local directory.<br/>
 Install Django:<br/>
@@ -61,12 +67,6 @@ Open the Localhost, if we see:<br/>
 `The install worked successfully! Congratulations!`<br/> 
  `You are seeing this page because DEBUG=True is in your settings file and you have not configure any urls. `<br/> 
 Then all setups are done.<br/> 
-# Method Running The Project(Locally) 
-Download the entire `my_social_app` project to local directory<br/>
-On local device Terminal, use `cd` to locate to the project to `...my_social_app/my_social_app`<br/>
-For Windows user: Run `python manage.py runserver` and open Localhost at http://127.0.0.1:8000/ to test the App. <br/>
-For macOS user: Run `python3 manage.py runserver` and open Localhost at http://127.0.0.1:8000/ to test the App. <br/> 
-`CONTROL+C` to terminate testing. <br/> 
 # Debugging&Troubleshooting
 - Temporary Error:  `raise ValueError(ValueError: The view core.views.signup didn't return an HttpResponse object. It returned None instead.
 "POST /signup HTTP/1.1" 500 61151`. DEBUGGING: In views.py, import messages and authentication of user model: `from django.contrib.auth.models import User, auth  from django.contrib import messages` Then in Terminal: `format document->CONTROL+C-> python3 manage.py runserver`.
