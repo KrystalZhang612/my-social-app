@@ -36,7 +36,7 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
   <img src = "https://github.com/KrystalZhang612/MySocial-App/blob/main/macos_monterey%20logo.png" title = "MacOS Monterey" alt = "MacOS Monterey" width = "60" height = "60"/>&nbsp;
   <img src = "https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg"  title = "Python" alt = "Python" width = "60" height = "60"/>&nbsp;
   <img src = "https://github.com/devicons/devicon/blob/master/icons/anaconda/anaconda-original.svg" title = "Anaconda" alt = "Anaconda" width = "60" height = "60"/>&nbsp; 
-  
+  <img src = "https://github.com/devicons/devicon/blob/master/icons/visualstudio/visualstudio-plain.svg" title = "Visual Studio Code" alt = "Visual Studio Code" width = "60" height = "60"/>&nbsp; 
 </div>
 
 # Build
