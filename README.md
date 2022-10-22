@@ -29,10 +29,10 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 [MacBook OS Monterey Version 12.6](https://www.apple.com/macos/monterey/)<br/>
 [Python 3.10.7](https://www.python.org/downloads/)<br/>
 [Anaconda Python Environment 3.9](https://www.anaconda.com/products/distribution)<br/>
-[Vscode 1.68+](https://code.visualstudio.com/updates/v1_72)
-[JavaScript]()<br/>
-[HTML5]()<br/>
-[CSS]()<br/>
+[Vscode 1.68+](https://code.visualstudio.com/updates/v1_72)<br/>
+[JavaScript](https://www.javascript.com)<br/>
+[HTML5](https://en.wikipedia.org/wiki/HTML5)<br/>
+[CSS3](https://en.wikipedia.org/wiki/CSS)<br/>
 
 
 <div>
@@ -41,6 +41,8 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
   <img src = "https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg"  title = "Python" alt = "Python" width = "60" height = "60"/>&nbsp;
   <img src = "https://github.com/devicons/devicon/blob/master/icons/anaconda/anaconda-original.svg" title = "Anaconda" alt = "Anaconda" width = "60" height = "60"/>&nbsp; 
   <img src = "https://github.com/devicons/devicon/blob/master/icons/visualstudio/visualstudio-plain.svg" title = "Visual Studio Code" alt = "Visual Studio Code" width = "60" height = "60"/>&nbsp; 
+  <img src = "https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title = "JavaScript" alt = "JavaScript" width = "60" height = "60"/>&nbsp; 
+       
 </div>
 
 # Build
