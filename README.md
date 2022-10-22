@@ -24,7 +24,7 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 - Account Setting feature to change profile image, bio and location.
 - Search bar to search for specific usernames.
 - Login section with authentication after logout.
-# Developing tools
+# 🛠️ Developing Languages, Tools, and Techniques Needed
 [Django 4.1](https://www.djangoproject.com)<br/>
 [MacBook OS Monterey Version 12.6](https://www.apple.com/macos/monterey/)<br/>
 [Python 3.10.7](https://www.python.org/downloads/)<br/>
