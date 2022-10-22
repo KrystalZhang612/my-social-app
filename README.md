@@ -30,6 +30,11 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 [Python 3.10.7](https://www.python.org/downloads/)<br/>
 [Anaconda Python Environment 3.9](https://www.anaconda.com/products/distribution)<br/>
 [Vscode 1.68+](https://code.visualstudio.com/updates/v1_72)
+
+<div>
+  <img src = "https://github.com/KrystalZhang612/MySocial-App/blob/main/django%20logo%20symbol.png" title = "Django" alt = "Django" width = "60" height = "60"/>&nbsp;
+</div>
+
 # Build
 [Method to Run & Test the Project Locally](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#method-to-run--test-the-project-locally)<br/>
 [Prerequisites & Setup](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#prerequisites--setup)<br/>
