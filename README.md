@@ -40,7 +40,7 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 [Author](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#author)
 # Compatibility
 `Windows 10`, `WSL Vscode 1.68+`, `Linux Ubuntu 22.04.1 LT`, `MacBook OS Monterey 12.6+`
-# Method Running The Project(Locally) 
+# Method to Run & Test the Project Locally
 Download the entire project to local directory<br/>
 On local device Terminal, use `cd` to locate to the project to `...my_social_app/my_social_app` folder <br/>
 For Windows user: Run `python manage.py runserver` and open Localhost at http://127.0.0.1:8000/ to test the App. <br/>
