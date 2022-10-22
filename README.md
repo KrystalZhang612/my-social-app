@@ -31,7 +31,7 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 [Anaconda Python Environment 3.9](https://www.anaconda.com/products/distribution)<br/>
 [Vscode 1.68+](https://code.visualstudio.com/updates/v1_72)
 # Build
-[Method to Run & Test the Project Locally]()<br/>
+[Method to Run & Test the Project Locally](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#method-to-run--test-the-project-locally)<br/>
 [Prerequisites & Setup](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#prerequisites--setup)<br/>
 [Debugging&Troubleshooting](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#debuggingtroubleshooting)<br/> 
 [Synchronous Developing Notes](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#synchronous-developing-notes)<br/> 
