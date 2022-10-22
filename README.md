@@ -14,7 +14,7 @@ In Vscode project, open the Terminal: <br/>
 Then in Settings-> Enable Git<br/>
 Source Control -> right click 3 dots -> Create new Branch -> name new branch -> Publish Branch <br/>
 Refresh the repo link on webpage, the entire project is pushed. <br/> 
-# Functionalities/Demo:
+# Functionalities/Demo
 - Users will be able to post feeds(upload pictures, texts) on their profiles.
 - Feature that allows users to like and unlike other users’ posts.
 - Being redirected to their profiles once clicking their usernames.
@@ -24,14 +24,14 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 - Account Setting feature to change profile image, bio and location.
 - Search bar to search for specific usernames.
 - Login section with authentication after logout.
-# Developing tools:
+# Developing tools
 [Django 4.1](https://www.djangoproject.com)<br/>
 [MacBook OS Monterey Version 12.6](https://www.apple.com/macos/monterey/)<br/>
 [Python 3.10.7](https://www.python.org/downloads/)<br/>
 [Anaconda Python Environment 3.9](https://www.anaconda.com/products/distribution)<br/>
 [Vscode 1.68+](https://code.visualstudio.com/updates/v1_72)
 # Build
-[Method Running The Project(Locally)](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#method-running-the-projectlocally)<br/>
+[Method to Run & Test the Project Locally]()<br/>
 [Prerequisites & Setup](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#prerequisites--setup)<br/>
 [Debugging&Troubleshooting](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#debuggingtroubleshooting)<br/> 
 [Synchronous Developing Notes](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#synchronous-developing-notes)<br/> 
