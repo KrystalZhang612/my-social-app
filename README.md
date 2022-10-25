@@ -58,11 +58,11 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 # Compatibility
 `Windows 10`, `WSL Vscode 1.68+`, `Linux Ubuntu 22.04.1 LT`, `MacBook OS Monterey 12.6+`
 # Method to Run & Test the Project Locally
-Download the entire project to local directory<br/>
-On local device Terminal, use `cd` to locate to the project to `...my_social_app/my_social_app` folder <br/>
-For Windows user: Run `python manage.py runserver` and open Localhost at http://127.0.0.1:8000/ to test the App. <br/>
-For macOS user: Run `python3 manage.py runserver` and open Localhost at http://127.0.0.1:8000/ to test the App. <br/> 
-`CONTROL+C` to terminate testing. <br/> 
+### Download the entire project to local directory
+### On local device Terminal, use `cd` to locate to the project to `...my_social_app/my_social_app` folder 
+### For Windows user: Run `python manage.py runserver` and open Localhost at http://127.0.0.1:8000/ to test the App. 
+### For macOS user: Run `python3 manage.py runserver` and open Localhost at http://127.0.0.1:8000/ to test the App. 
+### `CONTROL+C` to terminate testing. 
 # Prerequisites & Setup:
 Create a new folder named `my_social_app`. Obtain its local directory.<br/>
 Install Django:<br/>
