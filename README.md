@@ -56,7 +56,15 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 # Contribution 
 [Author](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#author)
 # Compatibility
-`Windows 10`, `WSL Vscode 1.68+`, `Linux Ubuntu 22.04.1 LT`, `MacBook OS Monterey 12.6+`
+|   OS             | Supported          |
+| -------          | ------------------ |
+| Windows 10       | :white_check_mark: |
+| macOS Mojave     | :white_check_mark: |             
+| macOS Monterey   | :white_check_mark: |
+| Linux            | :white_check_mark: |
+| Linux Kernel     | :white_check_mark: |
+| Ubuntu           | :white_check_mark: |
+
 # Method to Run & Test the Project Locally
 ### Download the entire project to local directory
 ### On local device Terminal, use `cd` to locate to the project to `...my_social_app/my_social_app` folder 
