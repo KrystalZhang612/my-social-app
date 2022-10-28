@@ -51,13 +51,13 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 </div>
 
 # Build
-[Method to Run & Test the Project Locally](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#method-to-run--test-the-project-locally)<br/>
-[Prerequisites & Setup](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#prerequisites--setup)<br/>
-[Debugging&Troubleshooting](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#debuggingtroubleshooting)<br/> 
-[Synchronous Developing Notes](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#synchronous-developing-notes)<br/> 
-[Testing Results](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#testing-results)<br/> 
+[Method to Run & Test the Project Locally](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App#method-to-run--test-the-project-locally)<br/>
+[Prerequisites & Setup](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App#prerequisites--setup)<br/>
+[Debugging&Troubleshooting](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App#debuggingtroubleshooting)<br/> 
+[Synchronous Developing Notes](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App#synchronous-developing-notes)<br/> 
+[Testing Results](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App#testing-results)<br/> 
 # Contribution 
-[Author](https://github.com/KrystalZhang612/MySocial-App/blob/main/README.md#author)
+[Author](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App#author)
 # Compatibility
 |   OS             | Supported          |
 | -------          | ------------------ |
