@@ -1,4 +1,4 @@
-# MySocial App 
+# KrystalZhang-MySocial App 
 A social media application using Django Python Web Framework.<br/> <hr>
 ## MySocial App Overview:<br/>
 ![Screenshot](https://github.com/KrystalZhang612/MySocial-App/blob/main/mysocialapp-overview1.png)<br/>
