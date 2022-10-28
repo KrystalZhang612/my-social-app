@@ -1,6 +1,7 @@
 # KrystalZhang-MySocial App 
 A social media application using Django Python Web Framework.<br/>
-## 🔺 ***Copyright and Commercial Use Disclaimer:***
+## ***[Copyright and Commercial Use Disclaimer](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix#please-carefully-read-licensemd-about-the-open-source-restrictions-and-the-personal-use-policy-of-this-project-under-gpl-30-license-any-commericial-uses-on-this-project-by-other-than-the-owner-krystalzhang612-or-the-authorized-users-and-organizations-including-unauthorized-modifications-forks-pull-requests-and-other-commercial-related-uses-will-be-subjected-to-copyright-violation-with-sebsequent-legal-concerns)*** 
+⏬
 ### ***Please carefully read [LICENSE.md](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/LICENSE) about the Open Source restrictions and the personal use policy of this project under [GPL-3.0 license](https://www.gnu.org/licenses/gpl-3.0.en.html), any commericial uses on this project by other than the owner [@KrystalZhang612](https://github.com/KrystalZhang612) or the authorized users and organizations, including unauthorized modifications, forks, pull requests, and other commercial-related uses will be subjected to copyright violation with sebsequent legal concerns.***
 ## MySocial App Overview:<br/>
 ![Screenshot](https://github.com/KrystalZhang612/MySocial-App/blob/main/mysocialapp-overview1.png)<br/>
