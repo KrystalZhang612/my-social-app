@@ -15,7 +15,7 @@ Enable Git in Vscode Settings <br/>
 `git add .`<br/>
 `git commit -m "my commit"`<br/> 
 `git remote add origin .GIT LINK OBTAINED FROM ABOVE`<br/> 
-`git push -u origin main<br/>
+`git push -u origin main`<br/>
 Then in Settings-> Enable Git<br/>
 Source Control -> right click 3 dots -> Create new Branch -> name new branch -> Publish Branch <br/>
 Refresh the repo link on webpage, the entire project is pushed. <br/> 
