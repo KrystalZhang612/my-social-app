@@ -58,7 +58,7 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 [Debugging&Troubleshooting](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App#debuggingtroubleshooting)<br/> 
 [Synchronous Developing Notes](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App#synchronous-developing-notes)<br/> 
 [Testing Results](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App#testing-results)<br/> 
-[Tags and Topics]() 
+[Tags and Topics](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/README.md#tags-and-topics) 
 # Contribution 
 [Author](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App#author)
 # Compatibility
