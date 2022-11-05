@@ -58,6 +58,7 @@ Refresh the repo link on webpage, the entire project is pushed. <br/>
 [Debugging&Troubleshooting](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App#debuggingtroubleshooting)<br/> 
 [Synchronous Developing Notes](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App#synchronous-developing-notes)<br/> 
 [Testing Results](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App#testing-results)<br/> 
+[Tags and Topics]() 
 # Contribution 
 [Author](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App#author)
 # Compatibility
@@ -916,6 +917,8 @@ Now refresh the logged in page and we can see on sidebar all suggested users sho
 [username search feature works.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/username%20search%20feature%20works.png)<br/>
 [user suggestions showed.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user%20suggestions%20showing.png)<br/>
 
+# Tags and Topics 
+javascript, css, python, html, django, html5., frontend, backend, django-rest-framework, python3, full-stack, full-stack-javascript, fullstack-development. 
 # Author
 Krystal Zhang 
 https://github.com/KrystalZhang612<hr>
