@@ -136,7 +136,7 @@ modify [urls.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/my_so
     path('', include('core.urls'))]
 ```
 Refresh localhost http://127.0.0.1:8000:<br/>
-[welcome testing white page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/welcome%20testing%20white%20page.png)<br/>
+[welcome testing white page.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/welcome%20testing%20white%20page.PNG)<br/>
 ## ***Template Setup:***
 Configurations setup:<br/>
 in [settings.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/my_social_app/settings.py):
@@ -153,7 +153,7 @@ In [views.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/vie
 return render(request, "index.html")
 ```
 Now all templates are cluttered on localhost:<br/>
-[all templates are uploaded.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/all%20templates%20are%20uploaded.png)<br/>
+[all templates are uploaded.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/all%20templates%20are%20uploaded.PNG)<br/>
 ## ***Static Files:***
 Refresh Vscode IDE, create a new folder named [static](https://github.com/KrystalZhang612/MySocial-App/tree/main/static):<br/>
 Set up static files roots in [settings.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/my_social_app/settings.py):
@@ -174,7 +174,7 @@ Change the configuration of the JavaScript link to the favicon.PNG image:
 ```JavaScript
 <link href="{% static 'favicon.png' %}" rel="icon" type="image/png">
 ```
-Refresh the localhost, we get [basic all JavaScript worked template.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/basic%20all%20JavaScript%20worked%20template.png)<br/>
+Refresh the localhost, we get [basic all JavaScript worked template.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/basic%20all%20JavaScript%20worked%20template.PNG)<br/>
 ## ***Creating a Profile Model:***
 Create authentication with the website->Register and login to the social media:<br/>
 we need to create a customized profile model, so in [models.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/models.py), extend database, create a separate model to the profile and link it to the user model using [foreign key](https://en.wikipedia.org/wiki/Foreign_key). <br/>
@@ -193,12 +193,11 @@ Create all necessary attributes to specify profile model:
 default='blank-profile-picture.png')
     location = models.CharField(max_length=100, blank=True)
 ```
-Here, create a new [media](https://github.com/KrystalZhang612/MySocial-App/tree/main/media) folder to hold the default avatar, which is:
-[blank-profile-picture.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/media/blank-profile-picture.png) here. <br/>
+Here, create a new [media](https://github.com/KrystalZhang612/MySocial-App/tree/main/media) folder to hold the default avatar. 
 Configure media url and root in [settings.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/my_social_app/settings.py):
 ```python
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
 ```
 Also configure the url pattern in [urls.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/urls.py):
 ```python 
@@ -258,7 +257,7 @@ Then to make the profile models visible on `admin` portal, in [admin.py](https:/
 from .models import Profile admin.site.register(Profile)
 ```
 Now open and login to http://127.0.0.1:8000/admin/ , we have:<br/> 
-[admin portal initial view.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/admin%20portal%20initial%20view.png)<br/> 
+[admin portal initial view.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/admin%20portal%20initial%20view.PNG)<br/> 
 ## ***Signup:***
 Add a new signup path in [urls.py(Core)](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/urls.py):
 ```python 
@@ -269,7 +268,7 @@ Create the signup view in [views.py](https://github.com/KrystalZhang612/MySocial
 def signup(request):
     return render(request, "signup.html")
 ```
-Type http://127.0.0.1:8000/signup we got: [signup initial page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/signup%20initial%20page.png)<br/>
+Type http://127.0.0.1:8000/signup we got: [signup initial page.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/signup%20initial%20page.PNG)<br/>
 Since passwords are confidential values, we need to use POST method in [signup.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/signup.html):
 ```JavaScript
 <form action= "" method = "POST">
@@ -320,9 +319,9 @@ Now in [signup.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/t
                  {% endfor %}  </div>
 ```
 Now test the signup page with existing username, email and unmatched PWs should get:<br/>
-[user taken.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user%20taken.png)<br/> 
-[email taken.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/email%20taken%20.png)<br/> 
-[unmatched passwords.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/unmatched%20passwords.png)<br/>
+[user taken.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/user%20taken.PNG)<br/> 
+[email taken.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/email%20taken.PNG%20.png)<br/> 
+[unmatched passwords.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/unmatched%20passwords.PNG)<br/>
 Now with no error, we want the system to automatically create a new user with creating a new profile that we can view in our `Django Administration` page. So in [views.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/views.py):
 ```python 
 #log user in and redirect them to settings page
@@ -338,7 +337,7 @@ Also import Profile Model to make profile creation work:
 from .models import Profile
 ```
 Now register new user on Signup portal, and refresh from the admin portal, we can see that the user we just registered has their username and profile successfully created: <br/>
-[user's username and their profile created.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user's%20username%20and%20their%20profile%20created.png)<br/>
+[user's username and their profile created.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/user's%20username%20and%20their%20profile%20created.PNG)<br/>
 ## ***Signin and Logout:***
 Add a new path in [urls.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/urls.py):
 ```python 
@@ -350,7 +349,7 @@ def signin(request):
     return render(request, "signin.html")
 ```
 type in http://127.0.0.1:8000/signin we get:<br/>
-[signin page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/signin%20page.png)<br/>
+[signin page.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/signin%20page.PNG)<br/>
 Configure POST Method for login authentication:<br/>
 In views.py, if user exists after input username and password, log the user in, if the user does not exist or either password OR username is incorrect, “credential invalid”:<br/>
 ```python 
@@ -369,7 +368,7 @@ password)
         else:
         return render(request, "signin.html")
 ```
-[Credential invalid message.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/credential%20invalid%20message.png)<br/>
+[Credential invalid message.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/credential%20invalid%20message.PNG)<br/>
 To achieve logout, start by creating a new logout path in [urls.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/urls.py):
 ```python 
 path('logout', views.logout, name = 'logout' ),
@@ -389,8 +388,7 @@ which for security purposes will redirect the user to the login page if detected
 ```python 
  @login_required(login_url='signin')
 ```
-So that when we refresh the home page, sign in page will show with the following url:<br/>
-[redirect to signin url.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/redirect%20to%20signin%20url.png)<br/>
+So that when we refresh the home page, sign in page will show with the following url:
 http://127.0.0.1:8000/signin?next=/ <br/> 
 So if ONLY the registered user sign in here they will be redirected to the home page.<br/>
 ## ***Account Settings:***
@@ -425,11 +423,11 @@ In settings.html:
 ```JavaScript 
 <h1 class="text-2xl leading-none text-gray-900 tracking-tight mt-3"><a href="/">Home</a> / Account Setting for <b>{{user.username}}</b></h1>
 ```
-[Home/ Account Setting for username.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/%20Home:%20Account%20Setting%20for%20username.png)<br/>
+[Home/ Account Setting for username.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/%20Home%3A%20Account%20Setting%20for%20username.PNG)<br/>
 Remove Privacy, the overview of the General left only setting page:<br/>
-[general left only account setting.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/general%20left%20only%20account%20setting.png)<br/>
+[general left only account setting.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/general%20left%20only%20account%20setting.PNG)<br/>
 Remove Working at and Relationship:<br/>
-[simplified setting.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/simplified%20setting.png)<br/>
+[simplified setting.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/simplified%20setting.PNG)<br/>
 Give user option to upload profile image:
 ```JavaScript 
   <div class="col-span-2">
@@ -438,9 +436,9 @@ Give user option to upload profile image:
 class="shadow-none bg-gray-100">
                     </div>
 ```
-[profile image upload.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/profile%20image%20upload.png)<br/>
+[profile image upload.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/profile%20image%20upload.PNG)<br/>
 Now besides allowing user to upload their own profile image, the default avatar shows:<br/>
-[default profile image shows/upload pfp.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/default%20profile%20image%20shows:upload%20pfp.png)<br/>
+[default profile image shows/upload pfp.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/default%20profile%20image%20shows%3Aupload%20pfp.PNG)<br/>
 ## ***Save all uploads and settings changes:***
 In [views.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/views.py):
 If user upload their own profile image, save all settings infos in their profile:
@@ -471,11 +469,10 @@ Being redirected to Account Settings page when user clicks `Account setting` on 
 <li><a href="/settings"> Account setting </a> </li>
 ```
 Now if I upload <br/>
-[krystal profile image.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/krystal%20profile%20image.png)<br/>
 as my own profile image and edit the settings as<br/>
-[all settings are saved.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/all%20settings%20are%20saved.png)<br/>
+[all settings are saved.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/all%20settings%20are%20saved.PNG)<br/>
 After saved, on admin portal we can see the profile for krystal as updated successfully:<br/>
-[krystal profile on admin side.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/krystal%20profile%20on%20admin%20side.png)<br/>
+[krystal profile on admin side.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/krystal%20profile%20on%20admin%20side.PNG)<br/>
 ## ***Uploading Posts:***
 In [models.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/models.py), to make every post with an unique ID:
 ```python 
@@ -506,21 +503,21 @@ Then we make migrations for this newly created model in Terminal:<br/>
 `Running migrations:`<br/> 
   `Applying core.0002_post... OK`<br/>
   Now in admin portal, we can see Posts appears as a Core:
-[posts as core appears.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/posts%20as%20core%20appears.png)<br/>
+[posts as core appears.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/posts%20as%20core%20appears.PNG)<br/>
 Create a new upload view in [views.py](https://github.com/KrystalZhang612/MySocial-App/blob/main/core/views.py):
 ```python 
 @login_required(login_url='signin')
 def upload(request):
     return HttpResponse('<h1>Upload View</h1>')
 ```
-[Upload initial button.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/Upload%20initial%20button.png)<br/>
+[Upload initial button.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/Upload%20initial%20button.PNG)<br/>
 We want the right top profile image to show our own profile image. So in [index.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/index.html):
 ```JavaScript 
 <a href="#">
 <img src="{{user_profile.profileimg.url}}" class="header-avatar"
 alt=""> </a>
 ```
-[right sidebar show our own profile image.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/right%20sidebar%20show%20our%20own%20profile%20image.png)<br/>
+[right sidebar show our own profile image.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/right%20sidebar%20show%20our%20own%20profile%20image.PNG)<br/>
 In views.py, add new image upload view:
 ```python 
 @login_required(login_url='signin')
@@ -536,8 +533,7 @@ caption=caption)
     else:
         return redirect('/')
 ```
-Now post a new image [new post image1.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/new%20post%20image1.png)<br/>
-And from admin portal we can see: [new post from krystal admin.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/new%20post%20from%20krystal%20admin.png)<br/>
+And from admin portal we can see: [new post from krystal admin.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/new%20post%20from%20krystal%20admin.PNG)<br/>
 Which the new post has its unique ID.
 ## ***Post Feed:***
 Change the post username to our own username in [index.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/index.html):
@@ -549,14 +545,14 @@ Change the post username to our own username in [index.html](https://github.com/
  ```JavaScript 
   <img src="{{post.image.url}}" alt="">
  ```
- Now [my first post showing.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/my%20first%20post%20showing.png)<br/>
- And click the image we got the zoom in: [zoom in first image.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/zoom%20in%20first%20image.png)<br/>
+ Now [my first post showing.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/my%20first%20post%20showing.PNG)<br/>
+ And click the image we got the zoom in: [zoom in first image.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/zoom%20in%20first%20image.PNG)<br/>
 Now reduce unnecessary features and add:
 ```JavaScript 
  <p>
  <a>{{post.user}} {{post.caption}}</a></p>
 ```
-Refresh and the caption description shows: [first post with caption showing.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/first%20post%20with%20caption%20showing.png)<br/>
+Refresh and the caption description shows: [first post with caption showing.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/first%20post%20with%20caption%20showing.PNG)<br/>
 Bolden the username prefix to caption:
 ```JavaScript 
  <a><strong>{{post.user}}</strong></a> {{post.caption}}
@@ -567,8 +563,7 @@ Add a hash link as:
 ```
 So when clicking on username above post, go to http://127.0.0.1:8000/# <br/> 
 Now let’s upload another picture:<br/>
-[new post image2.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/new%20post%20image2.png)<br/>
-[second post.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/second%20post.png)<br/>
+[second post.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/second%20post.PNG)<br/>
 To get the latest posts always shows ABOVE the older posts:
 ```JavaScript 
   {% for post in posts reversed %}
@@ -627,7 +622,7 @@ We want the number of likes to show underneath the post, so in [index.html](http
 ```JavaScript 
 <p>Liked by {{post.no_of_likes}} person</p>
 ```
-Now if we click like button: [1 person liked the post.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/1%20person%20liked%20the%20post.png)<br/>
+Now if we click like button: [1 person liked the post.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/1%20person%20liked%20the%20post.PNG)<br/>
 To differentiate from liked by 0, 1 and 2+ people, we need if-statement:
 ```JavaScript 
   </svg>
@@ -652,7 +647,7 @@ def profile(request, pk):
     return render(request, 'profile.html')
 ```
 Go to http://127.0.0.1:8000/profile/krystalzhang612 and can observe our own profile. <br/>
-[user’s own profile.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user's%20own%20profile.png)<br/>
+[user’s own profile.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/user's%20own%20profile.PNG)<br/>
 To customize profile home page, in [profile.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/profile.html):
 To make the posted images visible on their profile:
 ```JavaScript 
@@ -675,7 +670,7 @@ Post</b></span>
 Posts</b></span>
 {% endif%}
 ```
-[krystal’s profile overview.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/krystal's%20profile%20overview.png)<br/>
+[krystal’s profile overview.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/krystal's%20profile%20overview.PNG)<br/>
 ## ***Profile Page Posts Display:***
 Make profile images scrollable:
 ```JavaScript 
@@ -739,7 +734,7 @@ FollowersCount.objects.create(follower=follower, user= user)
     new_follower.save()
     return redirect('/profile/'+user)
 ```
-Now hit Follow button: [follower count admin.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/follower%20count%20admin.png)<br/>
+Now hit Follow button: [follower count admin.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/follower%20count%20admin.PNG)<br/>
 Make Follow button disappear if a user is viewing their own profiles. So in [profile.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/profile.html):
 ```JavaScript 
  {% if user_object.username == user.username %}
@@ -749,7 +744,7 @@ Make Follow button disappear if a user is viewing their own profiles. So in [pro
 #ffc0cb; border: #ffc0cb;">Follow</button></a>
 {% endif %}
 ```
-So at logged in user’s own profile page: [not follow button but account setting.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/not%20follow%20button%20but%20account%20setting.png)<br/>
+So at logged in user’s own profile page: [not follow button but account setting.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/not%20follow%20button%20but%20account%20setting.PNG)<br/>
 To switch Unfollow/Follow based on following status, in views.py:
 ```python 
  follower = request.user.username
@@ -760,7 +755,7 @@ user).first():
     else:
         button_text = 'Follow'
 ```
-[unfollow button works.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/unfollow%20button%20works.png)<br/>
+[unfollow button works.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/unfollow%20button%20works.PNG)<br/>
 Now in order to get correct amounts of followers and following showing, in views.py:
 ```python 
 user_followers = len(FollowersCount.objects.filter(user=pk)) user_following = len(FollowersCount.objects.filter(follower=pk))
@@ -776,7 +771,7 @@ followers</b></span>
 {% endif %}
 <span style="color: white; font-size: 27px;"><b>{{user_following}} following</b></span>
 ```
-Now we get: [correct amount of following and followers showing.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/correct%20amount%20of%20following%20and%20followers%20showing.png)<br/>
+Now we get: [correct amount of following and followers showing.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/correct%20amount%20of%20following%20and%20followers%20showing.PNG)<br/>
 ## ***Post Feed Updated:***
 To get to see the following users’ feed, we need to use iteration and append in views.py:
 ```python 
@@ -792,14 +787,14 @@ FollowersCount.objects.filter(follower=request.user.username)
 return render(request, "index.html", {'user_profile': user_profile, 'posts': feed_list})
 ```
 Now krystal’s posts shows on mckenna’s feed since she follows her:
-[following users' feed visible.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/following%20users'%20feed%20visible.png)<br/>
+[following users' feed visible.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/following%20users'%20feed%20visible.PNG)<br/>
 ## ***Download Post Images:***
 In [index.html](https://github.com/KrystalZhang612/MySocial-App/blob/main/templates/index.html):
 ```JavaScript 
 <a href="{{post.image.url}}" class="flex items-center space-x-2 flex-1 justify-end" download >
 ```
 Click the bottom square-shaped button and the download feature works:<br/> 
-[download feature works.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/download%20feature%20works.png)<br/>
+[download feature works.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/download%20feature%20works.PNG)<br/>
 ## ***Search User:***
 Make search bar searchable in index.html:
 ```JavaScript 
@@ -807,7 +802,7 @@ Make search bar searchable in index.html:
 <button type ="submit"><i class="fa fa-search fa-1x"></i></button>
 ```
 Now the search bar has proper spacing and placeholder:<br/>
-[username search bar initial look.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/username%20search%20bar%20initial%20look.png)<br/>
+[username search bar initial look.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/username%20search%20bar%20initial%20look.PNG)<br/>
 Then create new url request as search in views.py:
 ```python 
 @login_required(login_url='signin')
@@ -846,7 +841,7 @@ href="/profile/{{users.user}}"><b>@{{users.user}}</b></a></h4>
    <p class="description">{{users.bio}}</p>
 ```
 Now if search `krystalzhang612` then we get the search feature working:<br/>
-[username search feature works.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/username%20search%20feature%20works.png)<br/>
+[username search feature works.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/username%20search%20feature%20works.PNG)<br/>
 ## ***User Suggestions:***
 Looping through all the lists of following users in views.py:
 ```python
@@ -868,53 +863,10 @@ registered accounts:<br/>
 @krystalzhang612 @admin @mckennagrace<br/> 
 @danreynolds @barmstrong @margotrobbie @chesterb<br/> 
 Now refresh the logged in page and we can see on sidebar all suggested users showed:<br/>
-[user suggestions showed.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user%20suggestions%20showing.png)<br/>
-
+[user suggestions showed.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/user%20suggestions%20showing.PNG)<br/>
 
 # Testing Results
-[welcome testing white page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/welcome%20testing%20white%20page.png)<br/>
-[all templates are uploaded.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/all%20templates%20are%20uploaded.png)<br/>
-[basic all JavaScript worked template.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/basic%20all%20JavaScript%20worked%20template.png)<br/>
-[blank-profile-picture.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/media/blank-profile-picture.png)<br/>
-[admin portal initial view.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/admin%20portal%20initial%20view.png)<br/> 
-[signup initial page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/signup%20initial%20page.png)<br/>
-[user taken.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user%20taken.png)<br/> 
-[email taken.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/email%20taken%20.png)<br/> 
-[unmatched passwords.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/unmatched%20passwords.png)<br/>
-[user's username and their profile created.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user's%20username%20and%20their%20profile%20created.png)<br/>
-[Credential invalid message.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/credential%20invalid%20message.png)<br/>
-[redirect to signin url.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/redirect%20to%20signin%20url.png)<br/>
-[Account Setting initial page.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/Account%20setting%20initial%20page.png)<br/> 
-[Home/ Account Setting for username.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/%20Home:%20Account%20Setting%20for%20username.png)<br/>
-[general left only account setting.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/general%20left%20only%20account%20setting.png)<br/>
-[simplified setting.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/simplified%20setting.png)<br/>
-[profile image upload.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/profile%20image%20upload.png)<br/>
-[default profile image shows/upload pfp.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/default%20profile%20image%20shows:upload%20pfp.png)<br/>
-[krystal profile image.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/krystal%20profile%20image.png)<br/>
-[all settings are saved.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/all%20settings%20are%20saved.png)<br/>
-[krystal profile on admin side.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/krystal%20profile%20on%20admin%20side.png)<br/>
-[posts as core appears.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/posts%20as%20core%20appears.png)<br/>
-[Upload initial button.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/Upload%20initial%20button.png)<br/>
-[right sidebar show our own profile image.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/right%20sidebar%20show%20our%20own%20profile%20image.png)<br/>
-[new post image1.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/new%20post%20image1.png)<br/>
-[new post from krystal admin.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/new%20post%20from%20krystal%20admin.png)<br/>
-[my first post showing.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/my%20first%20post%20showing.png)<br/>
-[zoom in first image.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/zoom%20in%20first%20image.png)<br/>
-[first post with caption showing.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/first%20post%20with%20caption%20showing.png)<br/>
-[new post image2.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/new%20post%20image2.png)<br/>
-[second post.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/second%20post.png)<br/>
-[1 person liked the post.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/1%20person%20liked%20the%20post.png)<br/>
-[user’s own profile.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user's%20own%20profile.png)<br/>
-[krystal’s profile overview.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/krystal's%20profile%20overview.png)<br/>
-[follower count admin.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/follower%20count%20admin.png)<br/>
-[not follow button but account setting.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/not%20follow%20button%20but%20account%20setting.png)<br/>
-[unfollow button works.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/unfollow%20button%20works.png)<br/>
-[correct amount of following and followers showing.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/correct%20amount%20of%20following%20and%20followers%20showing.png)<br/>
-[following users' feed visible.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/following%20users'%20feed%20visible.png)<br/>
-[download feature works.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/download%20feature%20works.png)<br/>
-[username search bar initial look.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/username%20search%20bar%20initial%20look.png)<br/>
-[username search feature works.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/username%20search%20feature%20works.png)<br/>
-[user suggestions showed.PNG](https://github.com/KrystalZhang612/MySocial-App/blob/main/user%20suggestions%20showing.png)<br/>
+
 
 # Tags and Topics 
 javascript, css, python, html, django, html5., frontend, backend, django-rest-framework, python3, full-stack, full-stack-javascript, fullstack-development. 
