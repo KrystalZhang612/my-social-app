@@ -866,6 +866,47 @@ Now refresh the logged in page and we can see on sidebar all suggested users sho
 [user suggestions showed.PNG](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/user%20suggestions%20showing.PNG)<br/>
 
 # Testing Results
+<p align = "center">
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/welcome%20testing%20white%20page.PNG">&nbsp; 
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/all%20templates%20are%20uploaded.PNG">&nbsp; 
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/basic%20all%20JavaScript%20worked%20template.PNG">&nbsp; 
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/admin%20portal%20initial%20view.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/signup%20initial%20page.PNG">&nbsp; 
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/user%20taken.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/email%20taken.PNG%20.png">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/unmatched%20passwords.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/user's%20username%20and%20their%20profile%20created.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/signin%20page.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/credential%20invalid%20message.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/%20Home%3A%20Account%20Setting%20for%20username.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/general%20left%20only%20account%20setting.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/simplified%20setting.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/profile%20image%20upload.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/default%20profile%20image%20shows%3Aupload%20pfp.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/all%20settings%20are%20saved.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/krystal%20profile%20on%20admin%20side.PNG">&nbsp;
+  <img src ="https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/posts%20as%20core%20appears.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/Upload%20initial%20button.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/right%20sidebar%20show%20our%20own%20profile%20image.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/new%20post%20from%20krystal%20admin.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/my%20first%20post%20showing.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/zoom%20in%20first%20image.PNG">&nbdp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/first%20post%20with%20caption%20showing.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/second%20post.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/1%20person%20liked%20the%20post.PNG">&nbsp; 
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/user's%20own%20profile.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/krystal's%20profile%20overview.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/follower%20count%20admin.PNG">&nbsp; 
+  <img src ="https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/not%20follow%20button%20but%20account%20setting.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/unfollow%20button%20works.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/correct%20amount%20of%20following%20and%20followers%20showing.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/following%20users'%20feed%20visible.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/download%20feature%20works.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/username%20search%20bar%20initial%20look.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/username%20search%20feature%20works.PNG">&nbsp;
+  <img src = "https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/user%20suggestions%20showing.PNG">&nbsp;
+</p>
+
 
 
 # Tags and Topics 
