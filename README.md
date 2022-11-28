@@ -2,10 +2,10 @@
 A social media application using Django Python Web Framework.<br/>
 ## ***[Copyright and Commercial Use Disclaimer](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/README.md#please-carefully-read-licensemd-about-the-open-source-restrictions-and-the-personal-use-policy-of-this-project-under-gpl-30-license-any-commericial-uses-on-this-project-by-other-than-the-owner-krystalzhang612-or-the-authorized-users-and-organizations-including-unauthorized-modifications-forks-pull-requests-and-other-commercial-related-uses-will-be-subjected-to-copyright-violation-with-sebsequent-legal-concerns)*** 
 ⏬
-### ***Please carefully read [LICENSE.md](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/LICENSE) about the Open Source restrictions and the personal use policy of this project under [GPL-3.0 license](https://www.gnu.org/licenses/gpl-3.0.en.html), any commericial uses on this project by other than the owner [@KrystalZhang612](https://github.com/KrystalZhang612) or the authorized users and organizations, including unauthorized modifications, forks, pull requests, and other commercial-related uses will be subjected to copyright violation with sebsequent legal concerns.***
+### ***Please carefully read [LICENSE.md](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/LICENSE) about the Open Source restrictions and the personal use policy of this project under [GPL-3.0 license](https://www.gnu.org/licenses/gpl-3.0.en.html), any commericial uses on this project by other than the owner [@KrystalZhang612](https://github.com/KrystalZhang612) or the authorized users and organizations, will be subjected to copyright violation with sebsequent potential legal concerns.***
 ## MySocial App Overview:<br/>
-![Screenshot](https://github.com/KrystalZhang612/MySocial-App/blob/main/mysocialapp-overview1.png)<br/>
-![Screenshot](https://github.com/KrystalZhang612/MySocial-App/blob/main/mysocialapp-overview2.png)<br/>
+![Screenshot](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/mysocialapp-overview1.PNG)<br/>
+![Screenshot](https://github.com/KrystalZhang612/KrystalZhang-MySocial-App/blob/main/testing-result-MySocialApp/mysocialapp-overview2.PNG)<br/>
                                                           
 [Method to fully push Vscode project to Github](https://stackoverflow.com/questions/46877667/how-to-add-a-new-project-to-github-using-vs-code):<br/>
 Create a new repo on Github profile without adding README file, copy the newly generated `.git` link. <br/>
